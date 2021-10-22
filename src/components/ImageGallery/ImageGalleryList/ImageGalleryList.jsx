@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 
 const ImageGalleryList = ({ images, onModalOpen }) => (
-  <ul className="ImageGallery" onClick={onModalOpen}>
+  <ul className="ImageGallery">
     {images.map(image => (
       <ImageGalleryItem
         key={`image-item-image-${image.id}`}
@@ -13,16 +13,18 @@ const ImageGalleryList = ({ images, onModalOpen }) => (
         // largeImageURL={image.largeImageURL}
         // {...image}
         image={image}
+        onModalOpen={onModalOpen}
       />
     ))}
   </ul>
 );
 export default ImageGalleryList;
 
-// ImageGalleryList.propTypes = {
-//   image: PropTypes.shape({
-//     webformatURL: PropTypes.string,
-//     tags: PropTypes.string,
-//   }).isRequired,
-//   onModalOpen: PropTypes.func.isRequired,
-// };
+ImageGalleryList.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  onModalOpen: PropTypes.func.isRequired,
+};

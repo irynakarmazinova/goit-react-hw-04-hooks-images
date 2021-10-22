@@ -6,7 +6,6 @@ const ImageGalleryItem = ({
   image,
   onModalOpen,
 }) => (
-  // <li className="ImageGalleryItem">
   <li className="ImageGalleryItem" onClick={() => onModalOpen(image)}>
     <img src={webformatURL} alt={tags} className="ImageGalleryItem-image" />
   </li>

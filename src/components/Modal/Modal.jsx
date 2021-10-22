@@ -10,9 +10,10 @@ export default function Modal({
 
     // очистить
     return () => {
-      window.removeEventListener('keydown', this.handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleKeyDown = e => {
     if (e.keyCode === 27) {
@@ -38,7 +39,7 @@ export default function Modal({
 Modal.propTypes = {
   onModalClose: PropTypes.func.isRequired,
   activeModalImg: PropTypes.shape({
-    largeImageURL: PropTypes.string.isRequired,
-    tags: PropTypes.string.isRequired,
+    largeImageURL: PropTypes.string,
+    tags: PropTypes.string,
   }).isRequired,
 };
